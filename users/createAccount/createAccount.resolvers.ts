@@ -1,6 +1,6 @@
-import { IUser } from "../users.types";
 import client from "../../client";
 import bcrypt from "bcrypt";
+import { IUser } from "../users.types";
 
 export default {
   Mutation: {
