@@ -1,4 +1,4 @@
-import { gql } from "apollo-server";
+import { gql } from "apollo-server-express";
 
 export default gql`
   type User {
@@ -10,6 +10,8 @@ export default gql`
     password: String!
     avatarURL: String
     githubUsername: String
+    following: [User]
+    followers: [User]
     createdAt: String!
     updatedAt: String!
   }

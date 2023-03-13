@@ -1,3 +1,4 @@
+import { User } from "@prisma/client";
 import { ReadStream, WriteStream } from "fs";
 
 export interface IUser {
@@ -8,6 +9,8 @@ export interface IUser {
   location: string;
   password: string;
   avatarURL: FileUpload;
+  following: User[];
+  followers: User[];
   githubUsername: string;
   createdAt: string;
   updatedAt: string;
