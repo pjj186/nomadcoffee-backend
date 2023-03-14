@@ -5,23 +5,25 @@ interface ISearchParam {
   page: number;
 }
 
-interface IFollowParam {
-  page: number;
-}
-
 export default {
   Query: {
     searchUsers: async (_: any, { keyword, page }: ISearchParam) => {
       const users = await client.user.findMany({
         where: {
           username: {
-            startsWith: keyword.toLowerCase(),
+            startsWith: keyword,
           },
         },
-        take: 4,
-        skip: (page - 1) * 4,
+        take: 5,
+        skip: (page - 1) * 5,
       });
-      return users;
+      const totalResults = await client.user.count({
+        where: { username: { startsWith: keyword } },
+      });
+      return {
+        users,
+        totalPages: Math.ceil(totalResults / 5),
+      };
     },
   },
 };
