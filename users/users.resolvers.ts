@@ -2,7 +2,7 @@ import client from "../client";
 import { Context } from "./types";
 import { IUser } from "./users.types";
 
-interface ILastId {
+export interface ILastId {
   lastId: number;
 }
 

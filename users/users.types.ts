@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { ReadStream, WriteStream } from "fs";
+import { FileUpload } from "../shared/shared.types";
 
 export interface IUser {
   id: number;
@@ -14,15 +14,4 @@ export interface IUser {
   githubUsername: string;
   createdAt: string;
   updatedAt: string;
-}
-
-interface ExtendedReadStream extends ReadStream {
-  _writeStream: WriteStream;
-}
-
-export interface FileUpload {
-  createReadStream(): ExtendedReadStream;
-  filename: string;
-  mimetype: string;
-  encoding: string;
 }
