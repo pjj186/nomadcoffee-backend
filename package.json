@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
-    "dev": "nodemon --ext 'ts,json' --exec ts-node server",
+    "dev": "nodemon --ext 'ts,json' --exec ts-node src/server",
     "migrate": "npx prisma migrate dev",
-    "studio": "npx prisma studio"
+    "studio": "npx prisma studio",
+    "build": "npx tsc",
+    "start": "node dist/server"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/pjj186/nomadcoffee-backend#readme",
   "dependencies": {
+    "@babel/cli": "^7.21.0",
     "@graphql-tools/load-files": "^6.6.1",
     "@graphql-tools/merge": "^8.3.15",
     "@graphql-tools/schema": "^9.0.13",
